@@ -4,9 +4,10 @@
 
 ### Installing Dependencies
 
-#### Python 3.7
+#### Python 3.6.0
 
-Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
+Follow this Youtube Video or the readme guide on the [pyenv](https://github.com/pyenv/pyenv) repository to easily switch to a different version of python.
+This project is most compatible with python 3.6.0
 
 #### Virtual Environment
 
@@ -39,6 +40,11 @@ Each time you open a new terminal session, run:
 ```bash
 export FLASK_APP=api.py;
 ```
+Also set the following environmental variable for Auth0
+```bash
+export AUTH0_DOMAIN='your_auth0_domain'
+export API_AUDIENCE='auth0_audience'
+```
 
 To run the server, execute:
 
@@ -56,28 +62,26 @@ The `--reload` flag will detect file changes and restart the server automaticall
 2. Select a unique tenant domain
 3. Create a new, single page web application
 4. Create a new API
-   - in API Settings:
-     - Enable RBAC
-     - Enable Add Permissions in the Access Token
+    - in API Settings:
+        - Enable RBAC
+        - Enable Add Permissions in the Access Token
 5. Create new API permissions:
-   - `get:drinks`
-   - `get:drinks-detail`
-   - `post:drinks`
-   - `patch:drinks`
-   - `delete:drinks`
+    - `get:drinks-detail`
+    - `post:drinks`
+    - `patch:drinks`
+    - `delete:drinks`
 6. Create new roles for:
-   - Barista
-     - can `get:drinks-detail`
-     - can `get:drinks`
-   - Manager
-     - can perform all actions
-7. Test your endpoints with [Postman](https://getpostman.com).
-   - Register 2 users - assign the Barista role to one and Manager role to the other.
-   - Sign into each account and make note of the JWT.
-   - Import the postman collection `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json`
-   - Right-clicking the collection folder for barista and manager, navigate to the authorization tab, and including the JWT in the token field (you should have noted these JWTs).
-   - Run the collection and correct any errors.
-   - Export the collection overwriting the one we've included so that we have your proper JWTs during review!
+    - Barista
+        - can `get:drinks-detail`
+    - Manager
+        - can perform all actions
+7. Test your endpoints with [Postman](https://getpostman.com). 
+    - Register 2 users - assign the Barista role to one and Manager role to the other.
+    - Sign into each account and make note of the JWT.
+    - Import the postman collection `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json`
+    - Right-clicking the collection folder for barista and manager, navigate to the authorization tab, and including the JWT in the token field (you should have noted these JWTs).
+    - Run the collection and correct any errors.
+    - Export the collection overwriting the one we've included so that we have your proper JWTs during review!
 
 ### Implement The Server
 
